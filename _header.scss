@@ -6,7 +6,7 @@
 @use '../base/variable' as variable;
 @use '../base/mediaQuery' as Query;
 
-.top-header{
+.top_header{
 // position: fixed;
 top: 0;
 left: 0;
@@ -16,11 +16,11 @@ display: flex;
 padding: 27px 4%;
 justify-content: space-between;
 align-items: center;
-    .left-logo{
+    .left_logo{
     display: block;
     height: 47px;
     } 
-    .right-buttons{
+    .right_buttons{
     list-style: none;
     display: flex;
     flex-wrap: wrap;
@@ -58,7 +58,7 @@ align-items: center;
         }
     }
 }
-.scroll-header {
+.scroll_header {
 position: fixed;
 top: 0;
 left: 0;
@@ -74,14 +74,14 @@ align-items: center;
 padding-left: 4%;
 padding-top: 20px;
 top: 33px;// 開発時のみ
-    .left-logo{
+    .left_logo{
     display: block;
     height: 47px;
     } 
     &.visible {
     transform: translateY(0); // 縦か横に膨らませる
     }
-    .left-logo img {
+    .left_logo img {
     height: 40px;     }
     .menu {
     position: absolute;
@@ -111,10 +111,10 @@ top: 33px;// 開発時のみ
     opacity: 1;
     transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.2s;
     }
-    .menu-btn {
+    .menu_btn {
     display: none;
     }
-    .menu-icon {
+    .menu_icon {
     display: inline-block;
     position: relative;
     cursor: pointer;
@@ -164,30 +164,30 @@ top: 33px;// 開発時のみ
     // box-shadow: 0px 0px 0px 0.4px #e2e2e2;
     }
     /* Hamburger Menu Animation Start */
-    .menu-btn:checked ~ .menu-icon .navicon:before {
+    .menu_btn:checked ~ .menu_icon .navicon:before {
     transform: rotate(-45deg);
     }
-    .menu-btn:checked ~ .menu-icon .navicon:after {
+    .menu_btn:checked ~ .menu_icon .navicon:after {
     transform: rotate(45deg);
     }
-    .menu-btn:checked ~ .menu-icon .navicon {
+    .menu_btn:checked ~ .menu_icon .navicon {
     background: rgba(0, 0, 0, 0);
     transition: 0.2192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
     box-shadow: none;
     }
-    .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before {
+    .menu_btn:checked ~ .menu_icon:not(.steps) .navicon:before {
     top: 0;
     background-color: #000;
     box-shadow: none;
     width: 62px;
     }
-    .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    .menu_btn:checked ~ .menu_icon:not(.steps) .navicon:after {
     bottom: 0;
     background-color: #000;
     box-shadow: none;
     }
     /* Hamburger Menu Animation End */
-    .menu-buttons{
+    .menu_buttons{
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -202,7 +202,7 @@ top: 33px;// 開発時のみ
         align-items: center;
         border-top: 1px solid #EAEAEA;
         padding: 4% 0;
-            .text-box{
+            .text_box{
             width: fit-content;
                 .en{
                 font-size: 13px;
