@@ -1,0 +1,236 @@
+/* ============================================ */
+/* ヘッダーcss↓ */
+/* @include Query.respons('sp') */
+/* @include Query.respons('tab') */
+/* ============================================ */
+@use '../base/variable' as variable;
+@use '../base/mediaQuery' as Query;
+
+.top-header{
+// position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+z-index: 1000;
+display: flex;
+padding: 27px 4%;
+justify-content: space-between;
+align-items: center;
+    .left-logo{
+    display: block;
+    height: 47px;
+    } 
+    .right-buttons{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    width: 354px;
+    column-gap: 35px;
+    justify-content: space-between;
+    margin-right: 12px;
+        a {
+        color:variable.$cl-black;
+        font-size: variable.$fs-main;
+        width: 150px;
+        display: flex;
+        align-items: center;
+        transition: 0.3s ease-in-out;
+        padding: 6px 0;
+            &::before{
+            content: "";
+            display: block;
+            width: 20px;
+            height: 1px;
+            background-color: variable.$cl-yellow;
+            margin-right: 15px;
+            transition: 0.3s ease-in-out;
+            }
+        }
+        li:hover {
+            a::before {
+            margin-right: 20px;
+            transition: 0.3s ease-in-out;
+            }
+        }
+    }
+}
+.scroll-header {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: fit-content;
+transform: translateY(-100%); // 縦か横に潰す
+transition: transform 0.3s ease-in-out;
+display: flex;
+// align-items: center;
+justify-content:space-between;
+z-index: 1000;
+align-items: center;
+padding-left: 4%;
+padding-top: 20px;
+top: 33px;// 開発時のみ
+    .left-logo{
+    display: block;
+    height: 47px;
+    } 
+    &.visible {
+    transform: translateY(0); // 縦か横に膨らませる
+    }
+    .left-logo img {
+    height: 40px;     }
+    .menu {
+    position: absolute;
+    width: 40%; // メニューの幅
+    height: 100vh;
+    top: 0;
+    right: -40%; // 初期状態で画面外に配置
+    clear: both;
+    background-color: #ffffff80;
+    transition: 0.3s cubic-bezier(0.4, 0.0, 0.2, 1) 0.3008s;
+    transform: translateX(100%); // 右から左にスライドする準備
+    transform-origin: top;
+    display: flex;
+    flex-direction: column;
+    padding: 120px 6%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch; /* スクロールの滑らかさを向上 (モバイル対応) */
+    }
+    .menu-btn:checked ~ .menu {
+    transform: translateX(0); // メニューを画面内にスライド
+    right: 0; // 画面右端に固定
+    transform-origin: top;
+    transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+    }
+    .menu-btn:checked ~ .menu a,
+    .menu-btn:checked ~ .menu li {
+    opacity: 1;
+    transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.2s;
+    }
+    .menu-btn {
+    display: none;
+    }
+    .menu-icon {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    display: flex;
+    align-items: center;
+    z-index: 9999;
+    justify-content: flex-end;
+    width: fit-content;
+    height: fit-content;
+    padding: 35px 30px 35px 16px; // ボタンのの当たり判定と位置が決まる
+    margin: 0px 45px;
+    }
+    .navicon {
+    background-color: #000000;
+    // box-shadow: 0px 0px 0px 0.4px #e2e2e2;
+    display: block;
+    height: 1px;
+    width: 48px;
+    border-radius: 9px;
+    position: relative;
+    transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+    // margin: 0 75px;
+    }
+    .navicon:before,
+    .navicon:after {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: #000000;
+    transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+    }
+    .navicon:before {
+    top: 12px;
+    background: #000000;
+    border-radius: 9px;
+    width: 34px;
+    // box-shadow: 0px 0px 0px 0.4px #e2e2e2;
+    }
+    .navicon:after {
+    bottom:12px;
+    background: #000000;
+    border-radius: 9px;
+    width: 62px;
+    // box-shadow: 0px 0px 0px 0.4px #e2e2e2;
+    }
+    /* Hamburger Menu Animation Start */
+    .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+    }
+    .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+    }
+    .menu-btn:checked ~ .menu-icon .navicon {
+    background: rgba(0, 0, 0, 0);
+    transition: 0.2192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+    box-shadow: none;
+    }
+    .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before {
+    top: 0;
+    background-color: #000;
+    box-shadow: none;
+    width: 62px;
+    }
+    .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    bottom: 0;
+    background-color: #000;
+    box-shadow: none;
+    }
+    /* Hamburger Menu Animation End */
+    .menu-buttons{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+        li{
+        height: 100%;
+        }
+        a{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid #EAEAEA;
+        padding: 4% 0;
+            .text-box{
+            width: fit-content;
+                .en{
+                font-size: 13px;
+                color: variable.$cl-navy;
+                margin-bottom: 13px;
+                font-weight: 600;
+                }
+                .button_title{
+                font-size: 22px;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+                }
+            }
+            i{
+            font-size: 16px;
+            color: #B6B6B6;
+            transition: 0.3s ease-in-out;
+            }
+            &:first-child{
+            border-top: none;
+            }
+            &:hover i{
+            margin-right: 8px;
+            transition: 0.3s ease-in-out;
+            color: variable.$cl-navy;
+            }
+            &:hover{
+            // border-top: 1px solid variable.$cl-navy;
+                .button_title{
+                color: variable.$cl-navy;
+                }
+            }
+        }
+    }    
+}
