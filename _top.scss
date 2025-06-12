@@ -1,0 +1,205 @@
+/* ============================================ */
+/* トップページcss↓ */
+/* @include Query.respons('sp') */
+/* @include Query.respons('tab') */
+/* ============================================ */
+@use '../base/variable' as variable;
+@use '../base/mediaQuery' as Query;
+
+.top_bg_color{
+background: linear-gradient(to bottom,
+ rgba(255, 255, 255, 0.5) 
+ 0%, rgb(215 227 39 / 50%) 
+ 50%, rgb(11 127 128 / 50%) 
+100%);
+}
+.top_fv{
+    .main{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 0;
+    position: relative;
+        .left{
+        height: fit-content;
+        width: 48%;
+            .heading{
+            font-weight: 600;
+            line-height: 137%;
+            letter-spacing: 6px;
+            margin-bottom: 47px;
+            }
+        }
+        .right{
+        width: 46%;
+        display: flex;
+            .img_box{
+            height: 633px;
+            width: 100%;
+            border-radius: 18px;
+            background-color: #a3dfae;
+            position: relative;
+            overflow: hidden;
+                .slider_image {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-size: cover;
+                background-position: center;
+                opacity: 0;
+                transition: opacity 0.5s ease-in-out;
+                    &.active {
+                        opacity: 1;
+                    }
+                }
+            }
+            .img_change_buttons{
+            padding-top: 26px;
+                .change_btn{
+                margin-bottom: 15px;
+                margin-left: 17px;
+                display: flex;
+                color: #d2d2d2;
+                font-size: 16px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                    &::before{
+                    content: '';
+                    width: 1.2px;
+                    height: 72px;
+                    // background-color: variable.$cl-navy;
+                    background-color: #d2d2d2;
+                    margin-right: 8px;
+                    transition: all 0.3s ease;
+                    }
+                    &.active {
+                    color: variable.$cl-navy;
+                    transition: all 0.3s ease;
+                        &::before{
+                        background-color: variable.$cl-navy;
+                        transition: all 0.3s ease;
+                        }
+                    }
+                    &:hover{
+                    color: variable.$cl-navy;
+                    transition: all 0.3s ease;
+                        &::before{
+                        background-color: variable.$cl-navy;
+                        transition: all 0.3s ease;
+                        }
+                    }                   
+                }
+            }
+        }
+    }
+    .airplane_img_box{
+    margin-left: calc(-1 * (100vw - 1100px) / 2);//ちょっと狭め
+    margin-right: calc(-1 * (100vw - 1100px) / 2);//ちょっと狭め
+    margin-top: -232px;
+    position: relative;
+    z-index: 1;
+    width: auto;
+    }
+    .airplane_img{
+    }
+}
+.start_point{
+padding-top: 140px;
+    h3{
+    font-size: variable.$fs-fv;
+    font-weight: 600;
+    letter-spacing: 6px;
+    margin-bottom: 47px;
+    }
+    .top_map{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -48px;
+    }
+}
+.top_business{
+padding-top: 140px;
+    .main{
+    display: flex;
+    justify-content: space-between;
+    }
+    .sec_title_en{
+    margin-bottom: 22px;
+    }
+    .left{
+    
+    }
+    .right{
+    width: 60%;
+        .more_btn{
+        margin-top: 50px;
+        margin-left: auto;
+        }
+    }
+
+
+
+// ==========スクロールアニメーション==========
+    $slide-width: 320px;
+    $slide-height: 416px;
+    $slide-count: 4;
+    $total-width: $slide-width * $slide-count * 2;
+    .auto-scroll-gallery {
+    width: 100%;
+    overflow: hidden;
+        .scroll-track {
+        display: flex;
+        width: $total-width;
+        animation: scroll-left 30s linear infinite;
+        column-gap: 17px;
+        padding-top: 86px;
+        padding-bottom: 40px;
+        }
+        .slide {
+        width: $slide-width;
+        height: $slide-height;
+        border-radius: 10px;
+        overflow: hidden;
+            img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            }
+        }
+        .slide_1{
+        margin-bottom: 28px;
+        }
+        .slide_2{
+        margin-top: 38px;
+        }
+        .slide_3{
+        margin-bottom: 32px;
+        }
+        .slide_4{
+        margin-top: 54px;
+        }
+    }    
+    @keyframes scroll-left {
+        0% {
+        transform: translateX(0);
+        }
+        100% {
+        transform: translateX(-50%);
+        }
+    }
+// ========================================
+      
+
+
+
+
+
+
+
+
+
+}

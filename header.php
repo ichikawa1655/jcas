@@ -31,7 +31,7 @@
         <input type="checkbox" class="menu_btn" id="menu_btn">
         <label for="menu_btn" class="menu_icon"><span class="navicon"></span></label>
         <div class="menu">
-            <ul class="menu-buttons">
+            <ul class="menu_buttons">
                 <li>
                     <a href="<?php echo esc_url(home_url('//')); ?>">
                         <div class="text_box">

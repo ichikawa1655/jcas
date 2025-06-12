@@ -1,0 +1,53 @@
+/* ============================================ */
+/* 変数 css↓ */
+/* ============================================ */
+@use '../base/mediaQuery' as Query;
+
+/* ↓色変数↓ */
+$cl-black: #121212;
+$cl-gray: #eeeeee;
+$cl-white: #fff;
+$cl-yellow: #EFE45B;
+$cl-back_black: #252525;
+$cl-back_gray: #f6f6f6;
+$cl-navy: #003057;
+
+/* フォントサイズ変数 */
+$fs-small: 1.3rem; 
+$fs-mid: 2rem;
+$fs-large: 2.4rem;
+$fs-main: 1.4rem;
+$fs-fv: 4.2rem;
+$fs-headtitle: 3.2rem;
+$fs-subtitle: 2rem;
+$fs-minititle: 1.6rem;
+
+@include Query.respons('sp') {
+    $fs-small: 1.4rem;
+    $fs-main: 1.6rem;
+    $fs-mid: 2rem;
+    $fs-large: 2.4rem;
+    $fs-headtitle: 3.2rem;
+    $fs-subtitle: 1.6rem;
+    $fs-minititle: 1.8rem;
+}
+
+/* マージン変数 */
+$mb-section: 240px;
+$mb-title: 80px;
+$mb-small: 16px;
+$mb-mid: 32px;
+$mb-img: 24px;
+
+@include Query.respons('sp') {
+    $mb-title: 80px;
+    $mb-section: 160px;
+    $mb-cont: 40px;
+    $mb-img: 24px;
+    $mb-small: 16px;
+    $mb-mid: 32px;
+}
+
+/* ============================================ */
+/* 変数 css↑ */
+/* ============================================ */
