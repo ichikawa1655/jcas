@@ -1,0 +1,65 @@
+/* ============================================ */
+/* 共通css↓ */
+/* @include Query.respons('sp') */
+/* @include Query.respons('tab') */
+/* ============================================ */
+@use '../base/variable' as variable;
+@use '../base/mediaQuery' as Query;
+
+.footer_contact{
+width: 100%;
+height: fit-content;
+margin-bottom: 100px;
+margin-top: 40px;
+    .img_bg{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    overflow: hidden;
+    }
+    .black_filter{
+    background-color: #00305780;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+        .button{
+        padding: 74px 53px 60px 74px;
+        transition: all 0.3s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+            .heading{
+            color: #fff;
+            font-weight: 600;
+            font-size: variable.$fs-subtitle;
+            margin-bottom: 28px;
+            }
+            .main_sentence{
+            color: #fff;
+            }
+            i{
+            color: #fff;
+            font-size: variable.$fs-main;
+            margin-top: 20px;
+            margin-left: auto;
+            transition: all 0.3s ease-in-out;
+            }
+            &:hover{
+            background-color: #0000001d;
+            transition: all 0.3s ease-in-out;
+                i{
+                transition: all 0.3s ease-in-out;
+                margin-right: 9px;
+                }
+            }
+        }
+        .white-line{
+        position: absolute;
+        height: 70%;
+        width: 0.8px;
+        border-radius: 10px;
+        background-color: #ffffffa6;
+        }
+    }
+}

@@ -1,0 +1,25 @@
+@use 'sass:map';
+
+$breakpoints: (
+    sp: 599px,
+    tab: 600px,
+    pc: 1140px,
+);
+
+@mixin respons($breakpoint) {
+    $min-width: map.get($breakpoints, $breakpoint);
+
+    @if $breakpoint == 'sp' {
+        @media (max-width: #{$min-width}) {
+            @content;
+        }
+    } @else if $breakpoint == 'tab' {
+        @media (min-width: #{$min-width}) and (max-width: #{map.get($breakpoints, 'pc') - 1}) {
+            @content;
+        }
+    } @else if $breakpoint == 'pc' {
+        @media (min-width: #{$min-width}) {
+            @content;
+        }
+    }
+}
