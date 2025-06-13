@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ----------------------------------------
-    //  写真スライドショー・クリックで切り替えも可能
+    //  fvの写真スライドショー・クリックで切り替えも可能
     // ----------------------------------------
     const images = document.querySelectorAll('.slider_image');
     const buttons = document.querySelectorAll('.change_btn');
@@ -84,5 +84,98 @@ document.addEventListener('DOMContentLoaded', () => {
             startAutoSlide(); // 再び自動スライドを開始
         });
     });
+
+    // ----------------------------------------
+    //  上下スクロールでパララックス効果（ゆらゆら動く）
+    // ----------------------------------------
+    const isMobile = window.innerWidth <= 768;
+
+    if (isMobile) return; // スマホでは無効化（必要に応じて）
+
+    const parallaxItems = document.querySelectorAll(".parallax_item");
+
+    window.addEventListener("scroll", () => {
+        const scrollY = window.scrollY;
+
+        parallaxItems.forEach((item) => {
+        const speed = parseFloat(item.dataset.speed);
+        const offset = scrollY * speed;
+
+        item.style.transform = `translateY(${offset}px)`;
+        });
+    });
+
+    // ----------------------------------------
+    //  現在のページに合わせてヘッダーナビの見た目を変える
+    // ----------------------------------------
+    document.addEventListener('DOMContentLoaded', function () {
+        const path = window.location.pathname;
+
+        // === カテゴリボタンの処理 ===
+        const categoryMap = {
+            notice: 'notice',
+            media: 'media',
+            news_release: 'news_release',
+            // ここに追加できる
+        };
+
+        let currentCategory = 'all';
+        for (let key in categoryMap) {
+            if (path.includes(key)) {
+                currentCategory = categoryMap[key];
+                break;
+            }
+        }
+
+        const categories = document.querySelectorAll('.news_category, .xxxx_category');
+        categories.forEach(category => {
+            const dataCategory = category.dataset.category;
+            if (dataCategory === currentCategory) {
+                category.classList.add('active');
+            }
+        });
+    });
+
+    // ----------------------------------------
+    //  現在のページに合わせて投稿カテゴリボタンのの見た目を変える
+    // ----------------------------------------
+    document.addEventListener('DOMContentLoaded', function () {
+        // === ヘッダーナビの処理 ===
+        const naviKeywords = ['strengths', 'about-us' ,'items' ,'recruit']; // このキーワードを含むリンクを対象にする
+        const path = window.location.pathname;  // 現在のパスを定義
+        const naviLinks = document.querySelectorAll('.header-navi-box .header-navi li a'); // このクラスにactiveを付与する
+
+        naviLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            naviKeywords.forEach(keyword => {
+                if (href.includes(keyword) && path.includes(keyword)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    });
+
 });
+
+
+
+
+// ---------------- 現在のページに合わせてヘッダーナビの見た目を変える ----------------------------
+// ---------------- 現在のページに合わせてヘッダーナビの見た目を変える ----------------------------
+document.addEventListener('DOMContentLoaded', function () {
+  // === ヘッダーナビの処理 ===
+  const naviKeywords = ['strengths', 'about-us' ,'items' ,'recruit']; // このキーワードを含むリンクを対象にする
+  const path = window.location.pathname;  // 現在のパスを定義
+  const naviLinks = document.querySelectorAll('.header-navi-box .header-navi li a'); // このクラスにactiveを付与する
+
+  naviLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      naviKeywords.forEach(keyword => {
+          if (href.includes(keyword) && path.includes(keyword)) {
+              link.classList.add('active');
+          }
+      });
+  });
+});
+
 
