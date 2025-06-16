@@ -1,0 +1,184 @@
+/* ============================================ */
+/* business.php_css↓ */
+/* @include Query.respons('sp') */
+/* @include Query.respons('tab') */
+/* ============================================ */
+@use '../base/variable' as variable;
+@use '../base/mediaQuery' as Query;
+
+.material_img{
+width: 100%;
+border-radius: 10px;
+overflow: hidden;
+}
+
+.our_business{
+padding-top: 120px;
+padding-bottom: 120px;
+    .right{
+        .main_flex{
+        margin-top: 50px;
+        margin-bottom: 58px;
+        justify-content: space-between;
+            .material_img_access{
+            width: 46%;
+            }
+        }
+        .material_img{
+        margin-top: 38px;
+        }
+    }
+}
+.airline{
+padding-top: 120px;
+padding-bottom: 120px;
+    .right{
+        .main_flex_turbo_prop{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 30px 0 32px;
+            .material_img_airplane{
+            width: 46%;
+            border-radius: 14px;
+            overflow: hidden;
+            }
+            .main_heading_mini{
+            width: 46%;
+            }
+        }
+        .material_turbo_prop{
+        width: 100%;
+        margin-top: 18px;
+        border-radius: 10px;
+        background-color: variable.$cl-back_gray;
+        padding: 29px 26px 41px;
+            .main_heading_mini{
+            text-align: center;
+            margin-bottom: 41px;
+            }
+            .main_flex{
+            justify-content: space-between;
+            align-items: normal;
+                .merit_box{
+                width: 32%;
+                border: 2px solid variable.$cl-navy;
+                border-radius: 10px;
+                padding: 44px 24px 31px;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                    .main_heading_mini{
+                    margin-bottom: 30px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    position: relative;
+                        &::after{
+                        content: "";
+                        position: absolute;
+                        bottom: -11px;
+                        height: 1px;
+                        border-radius: 1px;
+                        width: 43px;
+                        background-color: variable.$cl-navy;
+                        }
+                    }
+                    .main_sentence{
+                    line-height: 164%;
+                    }
+                }
+                @mixin number{
+                font-size: variable.$fs-large;
+                background-color: variable.$cl-navy;
+                border-radius: 50%;
+                color: #fff;
+                font-weight: 600;
+                aspect-ratio: 1;
+                width: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                top: -30px;
+                }
+                .number_1::before{
+                    @include number;
+                    content: '01';
+                }
+                .number_2::before{
+                    @include number;
+                    content: '02';
+                }
+                .number_3::before{
+                    @include number;
+                    content: '03';
+                }
+            }
+        }
+    }
+}
+.regional_creation{
+padding-top: 120px;
+padding-bottom: 120px;
+    .right{
+        .material_img{
+        margin: 37px 0 77px;
+        }
+        .tourism{
+        margin-top: 40px;
+        align-items: center;
+        justify-content: space-between;
+            .material_tourism{
+            overflow: hidden;
+            border-radius: 12px;
+            width: 38%;
+            height: 220px;
+            }
+            .tourism_right{
+            width: 58%;
+            height: fit-content;
+                .main_heading_mini{
+                margin-bottom: 10px;
+                }
+                .main_sentence{
+                line-height: 178%;
+                }
+                .more_btn{
+                margin-top: 16px;
+                margin-left: auto;
+                width: 183px;
+                }
+            }
+        }
+    }
+}
+.co_creation_areas{
+padding-top: 120px;
+padding-bottom: 120px;
+    .right{
+        .main_flex{
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 30px;
+        justify-content: space-between; 
+        align-items: flex-end;
+            .logo_box{
+            width: 36%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+                img{
+                height: auto;
+                }
+                .more_btn{
+                margin-top: 30px;
+                width: 167px;
+                column-gap: 18px;
+                }
+            }
+        }
+    }
+}

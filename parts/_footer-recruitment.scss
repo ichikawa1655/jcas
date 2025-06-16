@@ -1,0 +1,29 @@
+/* ============================================ */
+/* 共通css↓ */
+/* @include Query.respons('sp') */
+/* @include Query.respons('tab') */
+/* ============================================ */
+@use '../base/variable' as variable;
+@use '../base/mediaQuery' as Query;
+
+.footer_recruitment{
+margin-top: 100px;
+    .footer_recruitment_bg{
+    background-color: #F5F5F5;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    }
+    .main_heading{
+    font-size: variable.$fs-fv;
+    margin-bottom: 0;
+    }
+    .more_btn{
+    margin-top: 17px;
+    width: 180px;
+    }
+}

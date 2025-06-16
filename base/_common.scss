@@ -91,13 +91,14 @@ width: calc(100vw); // ブラウザ幅いっぱい
 /*---------------------------------------------*/
 /* セクションタイトル
 /*---------------------------------------------*/
-.sec_title_en{
+.section_title_en{
 font-size: variable.$fs-minititle;
 font-weight: 600;
 line-height: 137%;
 color: variable.$cl-navy;
+margin-bottom: 12px;
 }
-.sec_title{
+.section_title{
 font-size: variable.$fs-fv;
 font-weight: 600;
 line-height: 137%;
@@ -107,6 +108,24 @@ margin-bottom: 47px;
 /*---------------------------------------------*/
 /* 説明文
 /*---------------------------------------------*/
+.main_heading{
+color: variable.$cl-navy;
+line-height: 150%;
+margin-bottom: 19px;
+letter-spacing: 1.5px;
+font-size: variable.$fs-headtitle;
+}
+.main_heading_mini{
+color: variable.$cl-navy;
+line-height: 150%;
+font-size: variable.$fs-subtitle;
+letter-spacing: 1.5px;
+font-weight: 600;
+    span{
+    font-size: variable.$fs-main;
+    margin-top: 10px;
+    }
+}
 .main_sentence{
 font-size: variable.$fs-minititle;
 line-height: 191%;
@@ -119,9 +138,21 @@ font-weight: 100;
 .main_flex{
 display: flex;
 justify-content: space-between;
+    .right{
+    width: 68%;
+    }
     @include Query.respons('sp') {
     flex-direction: column;
     }
+}
+.sticky{
+position: sticky;
+top: 148px;
+height: fit-content;
+    @include Query.respons('sp') {
+    position: relative;
+    }
+
 }
 /*---------------------------------------------*/
 /* もっと見るボタン
@@ -235,4 +266,37 @@ transition: transform 0.05s linear; // なめらかさ調整（必要なら）
 /*
 /*---------------------------------------------*/
 .child_fv{
+width: 100%;
+    .child_fv_top{
+    padding: 59px 32px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+        .title{
+            h2{
+            display: flex;
+            flex-direction: column;
+            row-gap: 18px;
+            font-size: 4.2rem;
+            font-weight: 600;
+            letter-spacing: 6px;
+            }
+        }
+        .pankuzu-list{
+        width: fit-content;
+            ul{
+            display: flex;
+            column-gap: 10px;
+                li{
+                font-size: variable.$fs-small;
+                }
+            }
+        }
+    }
+    .child_fv_img{
+    width: 100%;
+    height: 50vh;
+    overflow: hidden;
+    border-radius: 18px;
+    }
 }

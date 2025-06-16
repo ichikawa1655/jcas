@@ -1,5 +1,5 @@
 <section id="FOOTER_CONTACT" class="footer_contact section_wrap">
-    <div class="img_bg" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/fv-company.jpg');">
+    <div class="img_bg" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/contact-bg.jpg');">
         <div class="black_filter main_flex">
             <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="button">
                 <span class="heading">取材に関するお問い合わせ</span>
