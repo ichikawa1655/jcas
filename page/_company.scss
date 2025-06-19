@@ -1,0 +1,119 @@
+/* ============================================ */
+/* company.php_css↓ */
+/* @include Query.respons('sp') */
+/* @include Query.respons('tab') */
+/* ============================================ */
+@use '../base/variable' as variable;
+@use '../base/mediaQuery' as Query;
+
+.company{
+padding-top: 120px;
+padding-bottom: 120px;
+    .right{
+    padding-top: 24px;
+        ul{
+        list-style: none;
+            li{
+            padding: 38px 0;
+            position: relative;
+                .heading{
+                width: 21%;
+                font-size: variable.$fs-minititle;
+                font-weight: 600;
+                letter-spacing: 1px;
+                line-height: 164%;
+                }
+                .main_sentence{
+                width: 79%;
+                color: #4e4e4e;
+                }
+                .position_flex{
+                display: flex;
+                column-gap: 42px;
+                width: 79%;
+                    p{
+                    font-size: variable.$fs-minititle;
+                    line-height: 191%;
+                    letter-spacing: 0.3px;
+                    font-weight: 100;
+                    color: #4e4e4e;
+                    }
+                }
+                &::after{
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                height: 1px;
+                width: 100%;
+                background: linear-gradient(to right, variable.$cl-navy 21%, #D4D4D4 21%);
+                }
+            }
+        }
+    }
+}
+.shareholder{
+padding-top: 120px;
+padding-bottom: 120px;
+    .right{
+    padding-top: 34px;
+        ul{
+        list-style: none;
+        flex-wrap: wrap;
+        row-gap: 16px;
+            li{
+            aspect-ratio: 6 / 1;
+            width: 49%;
+            overflow: hidden;
+            border-radius: 10px;
+            background-color: variable.$cl-back_gray;
+            font-size: variable.$fs-minititle;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4e4e4e;
+            transition: all 0.3s ease-in-out;
+                &:hover {
+                transition: all 0.3s ease-in-out;
+                transform: scale(1.04);
+                }         
+            }
+        }
+    }
+}
+.media{
+padding-top: 120px;
+padding-bottom: 120px;
+    .right{
+    padding-top: 30px;
+        .media_button{
+        position: relative;
+        width: 32%;
+        height: 180px;
+        padding: 28px;
+        border-radius: 16px;
+        border: 1px solid variable.$cl-navy;
+        font-size: variable.$fs-mid;
+        color: variable.$cl-navy;
+        font-weight: 600;
+        letter-spacing: 1px;
+        transition: all 0.3s ease-in-out;
+            i{
+            transition: all 0.3s ease-in-out;
+            margin-top: auto;
+            margin-left: auto;
+            color: variable.$cl-navy;
+            font-size: variable.$fs-minititle;
+            position: absolute;
+            bottom: 28px;
+            right: 28px;
+            }
+            &:hover {
+                i{
+                transition: all 0.3s ease-in-out;
+                margin-right: -8px;
+                }
+            }
+        }
+    }
+}

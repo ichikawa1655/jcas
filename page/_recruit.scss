@@ -1,0 +1,250 @@
+/* ============================================ */
+/* 採用情報css↓ */
+/* @include Query.respons('sp') */
+/* @include Query.respons('tab') */
+/* ============================================ */
+@use '../base/variable' as variable;
+@use '../base/mediaQuery' as Query;
+
+#RECRUIT{
+    .main_flex.recruit_main_flex{
+    flex-direction: row-reverse;
+    padding-top: 80px;
+    padding-bottom: 120px;
+    position: relative;
+    }
+    .recruit_wrap{ //採用情報セクション（グレー背景）
+    width: 30%;
+    background-color: #F3F3F3;
+    padding: 48px 2% 0;
+    margin-left: 20px;
+    border-radius: 12px;
+        .recruit_top{ // スクロールしないトップ部分
+            .heading{ // 「採用情報一覧」
+            font-size: variable.$fs-large;
+            color: variable.$cl-navy;
+            text-align: center;
+            padding-bottom: 34px;
+            font-weight: 700;
+            }
+            .recruit_filter_buttons{ // ボタン2個
+            display: flex;
+            justify-content: space-between;
+            border-radius: 6px;
+            padding-bottom: 12px;
+                .recruit_filter_toggle_wrapper{
+                width: 48.5%;
+                position: relative;
+                    .recruit_filter_toggle{ // ボタン
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    padding: 13px 16px;
+                    background-color: #fff;
+                    border-radius: 7px;
+                    justify-content: space-between;
+                    transition: all 0.3s ease;
+                    font-size: variable.$fs-small;
+                        span{
+                        font-weight: 600;
+                        font-size: variable.$fs-small;
+                        color: variable.$cl-navy;
+                        }
+                        i{
+                        transform: rotate(90deg);
+                        font-size: 15px;
+                        color: variable.$cl-navy;
+                        margin-top: 1px;
+                        }
+                        &:hover{
+                        transition: all 0.3s ease;
+                        transform: scale(1.02);
+                        }
+                    }
+                    .dropdown {
+                    display: none;
+                    background: #fff;
+                    border: 1px solid #ebebeb;
+                    border-radius: 6px;
+                    overflow: hidden;
+                        li {
+                        padding: 13px 16px;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+                        font-size: variable.$fs-small;
+                            &:hover {
+                            background-color: #eee;
+                            transition: all 0.3s ease;
+                            }
+                        }
+                        &.open {
+                        display: block;
+                        position: absolute;
+                        top: 46px;
+                        width: 100%;
+                        z-index: 10;
+                        }
+                    }
+                }
+            }
+            .filter_apply{ // 絞り込み実行ボタン
+            font-weight: 600;
+            color: #fff;
+            font-size: variable.$fs-small;
+            border-radius: 6px;
+            background-color: variable.$cl-navy;
+            text-align: center;
+            padding: 13px 0;
+            width: 100%;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+                &:hover{
+                transition: all 0.3s ease;
+                transform: scale(1.02);
+                }
+            }
+        }
+        .recruit_list_scroll{ // スクロール可能なリスト
+        height: auto; // スクロール可能な高さ---------------------
+        overflow-y: auto; 
+        display: flex;
+        flex-direction: column;
+        row-gap: 16px;
+            .recruit_item{
+            background-color: #fff;
+            padding: 30px 22px;
+            border-radius: 7px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+                .recruit_category{
+                font-size: variable.$fs-small;
+                background-color: #F1F1F1;
+                padding: 8px 19px;
+                margin-bottom: 16px;
+                width: fit-content;
+                border-radius: 3px;
+                }
+                .title{
+                font-size: variable.$fs-minititle;
+                color: variable.$cl-navy;
+                margin-bottom: 16px;
+                font-weight: 600;
+
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                -webkit-line-clamp: 2; /* 表示する最大行数 */
+                line-height: 160%;/* 行の高さ */
+                max-height: 49px; /* 改行数に応じて高さを設定 */
+                }
+                .content{
+                font-size: variable.$fs-main;
+                margin-bottom: 16px;
+
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                -webkit-line-clamp: 4; /* 表示する最大行数 */
+                line-height: 140%;/* 行の高さ */
+                max-height: 80px; /* 改行数に応じて高さを設定 */
+                }
+                .tag_list{
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+                    .tag{
+                    border: 1px solid variable.$cl-navy;
+                    border-radius: 4px;
+                    color: variable.$cl-navy;
+                    font-size: variable.$fs-small;
+                    padding: 4px 7px;
+                    }
+                }
+                &:hover{
+                transition: all 0.3s ease;
+                transform: scale(1.02);
+                }
+            }
+            .recruit_no_posts{
+            width: 100%;
+            text-align: center;
+            font-size: variable.$fs-small;
+            }
+        } 
+    }
+    .main_flex{
+        .right{
+        width: 64%;
+        height: fit-content;
+            .our_mission{
+            padding-top: 20px;
+            padding-bottom: 140px;
+                .recruit_page_airplane_img{
+                width: 100%;
+                }
+                .more_btn{
+                margin-top: 40px;
+                margin-left: auto;
+                }
+            }
+            .ideal_candidate{
+            padding-bottom: 126px;
+            }
+            .pitch_deck{
+            padding-bottom: 126px;
+            }
+            .project_material_img{
+            width: 100%;
+            margin-top: 30px;
+            border-radius: 8px;
+            overflow: hidden;
+                &.sample{
+                height: 330px;
+                background-color: #b8b8b8;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                    span{
+                    color: #fff;
+                    font-size: 14px;
+                    font-weight: 600;
+                    }
+                }
+            }
+            .recruit_contact_button{
+            background-color: #073763;
+            border-radius: 8px;
+            overflow: hidden;
+            padding: 55px 74px 40px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+                .heading{
+                color: #fff;
+                font-weight: 600;
+                font-size: variable.$fs-subtitle;
+                margin-bottom: 21px;
+                }
+                .main_sentence{
+                color: #fff;
+                }
+                i{
+                color: #fff;
+                font-size: variable.$fs-main;
+                margin-top: 20px;
+                margin-left: auto;
+                transition: all 0.3s ease-in-out;
+                }
+                &:hover{
+                transition: all 0.3s ease-in-out;
+                background-color: rgb(10, 41, 70);
+                    i{
+                    transition: all 0.3s ease-in-out;
+                    margin-right: 9px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -89,93 +89,144 @@ document.addEventListener('DOMContentLoaded', () => {
     //  上下スクロールでパララックス効果（ゆらゆら動く）
     // ----------------------------------------
     const isMobile = window.innerWidth <= 768;
+    if (isMobile) return; // スマホでは無効化
 
-    if (isMobile) return; // スマホでは無効化（必要に応じて）
+        const parallaxItems = document.querySelectorAll(".parallax_item");
 
-    const parallaxItems = document.querySelectorAll(".parallax_item");
-
-    window.addEventListener("scroll", () => {
+        window.addEventListener("scroll", () => {
         const scrollY = window.scrollY;
 
         parallaxItems.forEach((item) => {
-        const speed = parseFloat(item.dataset.speed);
-        const offset = scrollY * speed;
+            const speed = parseFloat(item.dataset.speed);
+            const direction = item.dataset.direction || "y"; // デフォルトはY
 
-        item.style.transform = `translateY(${offset}px)`;
-        });
-    });
+            let offsetX = 0;
+            let offsetY = 0;
 
-    // ----------------------------------------
-    //  現在のページに合わせてヘッダーナビの見た目を変える
-    // ----------------------------------------
-    document.addEventListener('DOMContentLoaded', function () {
-        const path = window.location.pathname;
-
-        // === カテゴリボタンの処理 ===
-        const categoryMap = {
-            notice: 'notice',
-            media: 'media',
-            news_release: 'news_release',
-            // ここに追加できる
-        };
-
-        let currentCategory = 'all';
-        for (let key in categoryMap) {
-            if (path.includes(key)) {
-                currentCategory = categoryMap[key];
-                break;
+            if (direction === "y") {
+            offsetY = scrollY * speed;
+            } else if (direction === "x-left") {
+            offsetX = -scrollY * speed; // 左に動かす
+            } else if (direction === "x-right") {
+            offsetX = scrollY * speed; // 右に動かす
             }
-        }
 
-        const categories = document.querySelectorAll('.news_category, .xxxx_category');
-        categories.forEach(category => {
-            const dataCategory = category.dataset.category;
-            if (dataCategory === currentCategory) {
-                category.classList.add('active');
-            }
+            item.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
         });
     });
 
     // ----------------------------------------
-    //  現在のページに合わせて投稿カテゴリボタンのの見た目を変える
+    //  リンクコピーボタン
     // ----------------------------------------
-    document.addEventListener('DOMContentLoaded', function () {
-        // === ヘッダーナビの処理 ===
-        const naviKeywords = ['strengths', 'about-us' ,'items' ,'recruit']; // このキーワードを含むリンクを対象にする
-        const path = window.location.pathname;  // 現在のパスを定義
-        const naviLinks = document.querySelectorAll('.header-navi-box .header-navi li a'); // このクラスにactiveを付与する
-
-        naviLinks.forEach(link => {
-            const href = link.getAttribute('href');
-            naviKeywords.forEach(keyword => {
-                if (href.includes(keyword) && path.includes(keyword)) {
-                    link.classList.add('active');
-                }
-            });
-        });
-    });
-
-});
-
-
-
-
-// ---------------- 現在のページに合わせてヘッダーナビの見た目を変える ----------------------------
-// ---------------- 現在のページに合わせてヘッダーナビの見た目を変える ----------------------------
-document.addEventListener('DOMContentLoaded', function () {
-  // === ヘッダーナビの処理 ===
-  const naviKeywords = ['strengths', 'about-us' ,'items' ,'recruit']; // このキーワードを含むリンクを対象にする
-  const path = window.location.pathname;  // 現在のパスを定義
-  const naviLinks = document.querySelectorAll('.header-navi-box .header-navi li a'); // このクラスにactiveを付与する
-
-  naviLinks.forEach(link => {
-      const href = link.getAttribute('href');
-      naviKeywords.forEach(keyword => {
-          if (href.includes(keyword) && path.includes(keyword)) {
-              link.classList.add('active');
-          }
+    const url = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent(document.title);
+    
+    document.getElementById("share-facebook").href =
+      `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+    
+    document.getElementById("share-x").href =
+      `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+    
+    document.getElementById("share-line").href =
+      `https://social-plugins.line.me/lineit/share?url=${url}`;
+    
+    document.getElementById("copy-link").addEventListener("click", function (event) {
+      event.preventDefault(); // ←これを追加
+      navigator.clipboard.writeText(window.location.href).then(function () {
+        alert("リンクをコピーしました！");
+      }, function () {
+        alert("コピーに失敗しました。");
       });
-  });
+    });
 });
 
+// ------------------------------------------------------------------------------------
+//  トグルで表示、絞り込み
+// ------------------------------------------------------------------------------------
+document.addEventListener("DOMContentLoaded", function () {
+    const categoryToggle = document.querySelector(".recruit_filter_toggle.category");
+    const tagToggle = document.querySelector(".recruit_filter_toggle.tag");
+    const categoryOptions = document.querySelector(".category-options");
+    const tagOptions = document.querySelector(".tag-options");
+    const applyBtn = document.querySelector(".filter_apply");
 
+    let selectedCat = "all";
+    let selectedTag = "all";
+
+    // トグル開閉
+    categoryToggle.addEventListener("click", () => {
+        categoryOptions.classList.toggle("open");
+    });
+    tagToggle.addEventListener("click", () => {
+        tagOptions.classList.toggle("open");
+    });
+
+    // ▼ カテゴリー・タグ選択肢は data-value を元に反映されるため、
+    // HTML（page-recruit.php）側の選択肢を更新すればここは基本的に変更不要です
+
+    // カテゴリー選択
+    categoryOptions.querySelectorAll("li").forEach((item) => {
+        item.addEventListener("click", () => {
+        selectedCat = item.dataset.value; // ← HTMLの data-value を参照している
+        categoryToggle.querySelector("span").textContent = item.textContent;
+        categoryOptions.classList.remove("open");
+        });
+    });
+
+    // タグ選択
+    tagOptions.querySelectorAll("li").forEach((item) => {
+        item.addEventListener("click", () => {
+        selectedTag = item.dataset.value; // ← HTMLの data-value を参照している
+        tagToggle.querySelector("span").textContent = item.textContent;
+        tagOptions.classList.remove("open");
+        });
+    });
+
+    // 絞り込み実行
+    applyBtn.addEventListener("click", () => {
+        const formData = new FormData();
+        formData.append("action", "get_recruit_posts");
+        formData.append("cat", selectedCat || "all");
+        formData.append("tag", selectedTag || "all");
+
+        fetch(ajaxurl, {
+        method: "POST",
+        body: formData,
+        })
+        .then((res) => res.text())
+        .then((html) => {
+            document.getElementById("recruit-list").innerHTML = html;
+        });
+    });
+
+    // 画面のどこを触ってもトグルを閉じる
+    document.addEventListener("click", function (e) {
+    const isCategoryClick = categoryToggle.contains(e.target) || categoryOptions.contains(e.target);
+    const isTagClick = tagToggle.contains(e.target) || tagOptions.contains(e.target);
+
+    if (!isCategoryClick) {
+        categoryOptions.classList.remove("open");
+    }
+
+    if (!isTagClick) {
+        tagOptions.classList.remove("open");
+    }
+    });
+
+});
+
+// ------------------------------------------------------------------------------------
+//  採用情報の高さを調節（右カラムの高さ - 229px）
+// ------------------------------------------------------------------------------------
+window.addEventListener('load', matchHeight);
+window.addEventListener('resize', matchHeight);
+
+function matchHeight() {
+  const sibling = document.querySelector('#RECRUIT .main_flex .right');
+  const match = document.querySelector('#RECRUIT .recruit_wrap .recruit_list_scroll');
+
+  if (sibling && match) {
+    const adjustedHeight = sibling.offsetHeight - 229;
+    match.style.height = adjustedHeight > 0 ? adjustedHeight + 'px' : '0px';
+  }
+}

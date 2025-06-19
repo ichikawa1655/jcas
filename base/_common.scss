@@ -86,8 +86,6 @@ left: calc((100vw - 1140px) / -2);
 right: calc((100vw - 1140px) / -2);
 width: calc(100vw); // ブラウザ幅いっぱい
 }
-    
-
 /*---------------------------------------------*/
 /* セクションタイトル
 /*---------------------------------------------*/
@@ -97,6 +95,7 @@ font-weight: 600;
 line-height: 137%;
 color: variable.$cl-navy;
 margin-bottom: 12px;
+font-family: 'Roboto Slab', serif;
 }
 .section_title{
 font-size: variable.$fs-fv;
@@ -104,6 +103,16 @@ font-weight: 600;
 line-height: 137%;
 letter-spacing: 6px;
 margin-bottom: 47px;
+font-family: 'Shippori Mincho', serif;
+}
+.section_title.section_title_long{
+letter-spacing: 3px;
+}
+.mincho{
+font-family: 'Shippori Mincho', serif;
+}
+.roboto{
+font-family: 'Roboto Slab', serif;
 }
 /*---------------------------------------------*/
 /* 説明文
@@ -140,6 +149,7 @@ display: flex;
 justify-content: space-between;
     .right{
     width: 68%;
+    padding-right: 20px;
     }
     @include Query.respons('sp') {
     flex-direction: column;
@@ -152,22 +162,23 @@ height: fit-content;
     @include Query.respons('sp') {
     position: relative;
     }
-
+}
+.left{
+padding-left: 20px;
 }
 /*---------------------------------------------*/
 /* もっと見るボタン
 /*---------------------------------------------*/
 .more_btn{
 display: flex;
-column-gap: 43px;
 justify-content: space-between;
-background-color: variable.$cl-navy;
+background-color: #003057;
 color: #fff;
-font-size: variable.$fs-main;
-padding: 13px 24px;
+font-size: 1.4rem;
+padding: 15px 22px;
 border-radius: 100px;
 transition: all 0.3s ease;
-width:200px;
+width: 188px;
     i{
     color: #fff;
     font-size: 1.6rem;
@@ -183,7 +194,7 @@ width:200px;
     }
 }
 /*---------------------------------------------*/
-/* ニュースリスト
+/* ニュースリスト（archiveとtopで使用）
 /*---------------------------------------------*/
 .news_list{
     .news_item{
@@ -254,13 +265,6 @@ width:200px;
         }
 }
 /*---------------------------------------------*/
-/* パララックス要素につける
-/*---------------------------------------------*/
-.parallax_item {
-will-change: transform; // パフォーマンス向上
-transition: transform 0.05s linear; // なめらかさ調整（必要なら）
-}
-/*---------------------------------------------*/
 /*
 /* 共有/子ページファーストビュー
 /*
@@ -276,10 +280,11 @@ width: 100%;
             h2{
             display: flex;
             flex-direction: column;
-            row-gap: 18px;
+            row-gap: 5px;
             font-size: 4.2rem;
             font-weight: 600;
             letter-spacing: 6px;
+            font-family: 'Shippori Mincho', serif;
             }
         }
         .pankuzu-list{
@@ -289,6 +294,10 @@ width: 100%;
             column-gap: 10px;
                 li{
                 font-size: variable.$fs-small;
+                max-width: 224px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
                 }
             }
         }
@@ -299,4 +308,11 @@ width: 100%;
     overflow: hidden;
     border-radius: 18px;
     }
+}
+/*---------------------------------------------*/
+/* パララックス要素につける
+/*---------------------------------------------*/
+.parallax_item {
+will-change: transform; // パフォーマンス向上
+transition: transform 0.05s linear; // なめらかさ調整（必要なら）
 }

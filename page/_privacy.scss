@@ -1,0 +1,66 @@
+/* ============================================ */
+/* プライバシーポリシーcss↓ */
+/* @include Query.respons('sp') */
+/* @include Query.respons('tab') */
+/* ============================================ */
+@use '../base/variable' as variable;
+@use '../base/mediaQuery' as Query;
+
+#PRIVACY_POLICY{
+
+}
+.privacy_policy{
+padding-bottom: 120px;
+background-color: #fff;
+padding-left: 140px;
+padding-right: 140px;
+    .heading{
+    width: 100%;
+    font-size: variable.$fs-minititle;
+    line-height: 30px;
+    text-align: center;
+    padding: 94px 11%;
+    }
+    ul{
+        li{
+        display: flex;
+        gap: 6%;
+        padding: 40px 0;
+        border-top: 1px solid #717171;
+            .title{
+            font-weight: 600;
+            color: #1E1E1E;
+            font-size: variable.$fs-subtitle;
+            width: 36%;
+            line-height: 180%;
+            }
+            .content{
+            color: #161616;
+            font-size: 16px;
+            font-size: variable.$fs-minititle;
+            line-height: 31px;
+            width: 100%;
+            }
+        }
+    }
+}
+@include Query.respons('sp') {
+    .privacy_policy ul li .title {
+    width: 100%;
+    }
+    .privacy_policy ul li .content {
+    line-height: 26px;
+    width: 100%;
+    }
+    .privacy_policy .heading {
+    width: 85%;
+    line-height: 26px;
+    text-align: center;
+    margin: 0 auto;
+    }
+    .privacy_policy ul {
+    margin-top: 100px;
+    }
+}
+
+

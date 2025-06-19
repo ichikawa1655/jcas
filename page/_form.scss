@@ -6,4 +6,397 @@
 @use '../base/variable' as variable;
 @use '../base/mediaQuery' as Query;
 
+#CONTACT{
 
+}
+.step_wrapper{
+width: 100%;
+padding-top: 45px;
+padding-bottom: 67px;
+display: flex;
+    ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+        .step{
+        font-size: variable.$fs-minititle;
+        font-weight: 600;
+        text-align: center;
+        color: variable.$cl-navy;
+        position: relative;
+        border: 1.5px solid variable.$cl-navy;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 26%;
+        height: 50px;
+        padding-left: 6px;
+        }
+        .step::before{
+        position: absolute;
+        top: calc(50% - 7px);
+        left: 19px;
+        font-size: variable.$fs-minititle;
+        color: variable.$cl-navy;
+        font-weight: 100;
+        }
+        .step1::before{
+        content: '1.';
+        }
+        .step2::before{
+        content: '2.';
+        }
+        .step3::before{
+        content: '3.';
+        }
+        .step.now_step{
+        background-color: variable.$cl-navy;
+        color: #fff;
+            &::before{
+            color: #fff;
+            }
+        }
+        .line{
+        width: 5%;
+        height: 1px;
+        background-color: variable.$cl-navy;
+        position: relative;
+        border-radius: 10px;
+        }
+    }
+}
+.form_wrap .main_sentence{
+padding-bottom:67px ;
+    &.complete{
+    padding-bottom: 80px;
+    padding-top: 40px;
+    text-align: center;
+    }
+}
+.form_wrap .more_btn{
+margin-left: auto;
+margin-right: auto;
+}
+.confirm_email{
+width: fit-content;
+margin-left: auto;
+margin-right: auto;
+border-radius: 8px;
+background-color: #F9F9F9;
+padding: 30px 13%;
+font-size: variable.$fs-minititle;
+line-height: 180%;
+text-align: center;
+    span{
+    color: variable.$cl-navy;
+    }
+}
+.wpcf7-response-output:empty {
+display: none;
+}
+// ============== フォームを囲う ================
+.form_wrap{
+padding-top: 100px;
+padding-bottom: 100px;
+padding-left: 5%;
+padding-right: 5%;
+}
+.form_bg{
+background-color: #F9F9F9;
+padding: 74px 60px;
+}
+// ====== お手本として表示される薄いテキスト =======
+input::placeholder,
+textarea::placeholder { 
+  color: #B0B0B0;
+}
+// ====== 入力してくださいの文字 =======
+.wpcf7-not-valid-tip{
+position: absolute;
+// top: 0;  /* 適宜調整 */
+bottom: -15px; /* 適宜調整 */
+left: 0; /* 適宜調整 */
+width: auto;
+height: auto;
+}
+// ============== 項目一つ ================
+.form_item{
+display: flex;
+min-height: 55px;
+padding-bottom: 20px;
+    // ======== タイトルの横幅と位置 =========
+    .form_title_box{
+    width: 39%;
+    padding-top: 22px;
+        // === タイトル =====
+        .form_title{
+        // font-size: 1.6rem;
+        // color: #161616;
+        font-size: variable.$fs-minititle;
+        font-weight: 600;
+        color: variable.$cl-black;
+        display: flex;
+        align-items: center;
+        }
+        .form_title.current::after{
+        content: '必須';
+        color: #fff;
+        background-color: #AF1C1C;
+        padding: 3px 5px;
+        font-size: 11px;
+        border-radius: 3px;
+        margin-left: 10px;
+        }
+
+    }
+    // ===== テキストフィールドラッパーの親 ======
+    p:nth-of-type(2) { 
+    width: 61%;
+    }
+    // ===== テキストフィールドラッパー ======
+    .wpcf7-form-control-wrap{     
+    display: block;
+    width: 100%;
+    position: relative;
+        input, //基本のテキストフィールド
+        .toggle_select, //フォロップダウンのテキストフィールド
+        .contact_content{
+        // font-size: 1.6rem;
+        // color: #161616;
+        position: relative;
+        width: 100%;
+        height: 55px;
+        border: 1px solid #B1B1B1;
+        border-radius: 4px;
+        background-color: #fff;
+        font-size: variable.$fs-minititle;
+        padding-left: 20px;
+        padding-right: 20px;
+        }
+        // テキストエリアのテキストフィールド
+        .contact_content{
+        min-height: 300px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        line-height: 170%;
+        }
+    }
+    // ===== ドロップダウンに矢印をつける ======
+    [data-name="toggle_select"] { 
+        &::before{
+        content: '';
+        width: 2px;
+        height: 9px;
+        background-color: #161616;
+        position: absolute;
+        top: calc(50% - 4px);
+        right: 25px;
+        transform: rotate(-45deg);
+        z-index: 1;
+        }
+        &::after{
+        content: '';
+        width: 2px;
+        height: 9px;
+        background-color: #161616;
+        position: absolute;
+        top: calc(50% - 4px);
+        right: 20px;
+        transform: rotate(45deg);
+        z-index: 1;
+        }
+    }
+}
+// === チェックボックスのラッパー ========================
+.custom-checkbox-wrapper > p {
+  display: flex;
+  justify-content: center;
+}
+
+.checkbox-text {
+// font-size: 1.6rem;
+// color: #161616;
+font-size: variable.$fs-minititle;
+color: variable.$cl-navy;
+    a {
+    // border-bottom: 1px solid #161616;
+    border-bottom: 1px solid variable.$cl-navy;
+    padding-bottom: 1px;
+    }
+    br {
+    display: none;
+    }
+}
+/* 見た目用チェックボックス */
+.custom-checkbox-label {
+display: inline-flex;
+align-items: center;
+cursor: pointer;
+position: relative;
+padding-left: 28px;
+font-size: 14px;
+user-select: none;
+    input[type="checkbox"] {
+    display: none;
+    }
+    &::before {
+    // border: 1px solid #161616;
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border: 1px solid variable.$cl-navy;
+    border-radius: 1px;
+    background: #fff;
+    box-sizing: border-box;
+    }
+    .checkbox-text::after {
+    // border: 1px solid #161616;
+    content: "";
+    position: absolute;
+    left: 2.5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 11px;
+    height: 11px;
+    background-color: variable.$cl-navy;
+    border-radius: 1px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    }
+    input[type="checkbox"]:checked ~ .checkbox-text::after {
+    opacity: 1;
+    }
+}
+/* CF7 バリデーション用チェックボックスは非表示 */
+.cf7-hidden-checkbox {
+display: none;
+}
+.custom-checkbox-wrapper{
+
+}
+.custom-checkbox-wrapper .wpcf7-not-valid-tip {
+display: block;
+color: red;
+font-size: 13px;
+margin-top: 6px;
+text-align: center;
+position: relative;
+}
+.wpcf7-submit:disabled,
+.wpcf7-submit.is-disabled {
+opacity: 0.6;
+pointer-events: none;
+cursor: not-allowed;
+}
+/* submitボタンやそのラッパー */
+.form_submit_container {
+padding: 54px 0 13px;
+display: flex;
+justify-content: center;
+column-gap: 18px;
+}
+.form_submit{
+width: fit-content;
+display: flex;
+position: relative;
+transition: all 0.3s ease;
+    .wpcf7-submit{
+    // background-color: #161616;
+    padding: 16px 48px 16px 22px;
+    background-color: variable.$cl-navy;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    overflow: visible;
+    z-index: 10;
+    }
+    &::before{
+    content: '';
+    width: 2px;
+    height: 9px;
+    background-color: #f9f9f9;
+    position: absolute;
+    top: calc(50% - 7px);
+    right: 19px;
+    transform: rotate(-45deg);
+    z-index: 100;
+    }
+    &::after{
+    content: '';
+    width: 2px;
+    height: 9px;
+    background-color: #ffffff;
+    position: absolute;
+    top: calc(50% - 2px);
+    right: 19px;
+    transform: rotate(45deg);
+    z-index: 100;
+    }
+    &.previous_button{
+        .wpcf7-previous{
+        // color: #161616;
+        // border: 1px solid #000;
+        padding: 16px 29px 16px 29px;
+        background-color: #ffffff;
+        color: variable.$cl-navy;
+        font-size: 15px;
+        font-weight: 500;
+        border: 1px solid variable.$cl-navy;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        position: relative;
+        display: flex;
+        overflow: visible;
+        z-index: 10;
+        }
+        &::before,
+        &::after{
+        display: none; /* 矢印を非表示 */
+        }
+    }
+    &:hover{
+    transition: all 0.3s ease;
+    transform: scale(1.05);
+    }
+}
+.form_submit > p{
+    .wpcf7-spinner{
+    display: none; /* スピナーを非表示 */
+    }
+}
+.form_submit.is-disabled {
+    opacity: 0.7;
+    pointer-events: none;
+    user-select: none;
+}
+.your_content{
+// font-size: 1.6rem;
+position: relative;
+width: 100%;
+height: 55px;
+border-radius: 4px;
+font-size: variable.$fs-minititle;
+padding-left: 20px;
+padding-right: 20px;
+display: flex;
+align-items: center;
+color: #595959;
+line-height: 170%;
+}
+.your_textarea .your_content{
+min-height: 55px;
+height: auto;
+padding-top: 10px;
+}

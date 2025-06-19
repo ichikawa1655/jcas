@@ -26,39 +26,39 @@
                     </p>
                 </div>
             </div>
-            <a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>" class="privacy_button">プライバシーポリシー<i class="icon-mini-arrow"></i></a>
+            <a href="<?php echo esc_url(home_url('/privacy/')); ?>" class="privacy_button">プライバシーポリシー<i class="icon-mini-arrow"></i></a>
         </div>
         <div class="right">
             <div class="footer_button_container">
                 <div class="page_buttons">
-                    <a href="<?php echo esc_url(home_url('//')); ?>" class="page_button">私たちについて<i class="icon-mini-arrow"></i></a>
+                    <a href="<?php echo esc_url(home_url('/aboutus/')); ?>" class="page_button">私たちについて<i class="icon-mini-arrow"></i></a>
                     <p class="section_name">企業理念</p>
                     <p class="section_name">チーム・体制</p>
                 </div>
                 <div class="page_buttons">
-                    <a href="<?php echo esc_url(home_url('//')); ?>" class="page_button">会社概要<i class="icon-mini-arrow"></i></a>
+                    <a href="<?php echo esc_url(home_url('/company/')); ?>" class="page_button">会社概要<i class="icon-mini-arrow"></i></a>
                     <p class="section_name">会社概要</p>
                     <p class="section_name">株主・投資家一覧</p>
                     <p class="section_name">オウンドメディア・SNS</p>
                 </div>
                 <div class="page_buttons">
-                    <a href="<?php echo esc_url(home_url('//')); ?>" class="page_button">事業紹介<i class="icon-mini-arrow"></i></a>
+                    <a href="<?php echo esc_url(home_url('/business/')); ?>" class="page_button">事業紹介<i class="icon-mini-arrow"></i></a>
                 </div>
                 <div class="page_buttons">
-                    <a href="<?php echo esc_url(home_url('//')); ?>" class="page_button">地域連携<i class="icon-mini-arrow"></i></a>
+                    <a href="<?php echo esc_url(home_url('/cocreation/')); ?>" class="page_button">地域連携<i class="icon-mini-arrow"></i></a>
                     <p class="section_name">富山</p>
                     <p class="section_name">米子</p>
                 </div>
             </div>
             <div class="footer_button_container right_right">
                 <div class="page_buttons">
-                    <a href="<?php echo esc_url(home_url('//')); ?>" class="page_button">ニュース<i class="icon-mini-arrow"></i></a>
+                    <a href="<?php echo esc_url(home_url('/news/')); ?>" class="page_button">ニュース<i class="icon-mini-arrow"></i></a>
                 </div>
                 <div class="page_buttons">
-                    <a href="<?php echo esc_url(home_url('//')); ?>" class="page_button">採用情報<i class="icon-mini-arrow"></i></a>
+                    <a href="<?php echo esc_url(home_url('/recruit/')); ?>" class="page_button">採用情報<i class="icon-mini-arrow"></i></a>
                 </div>
                 <div class="page_buttons">
-                    <a href="<?php echo esc_url(home_url('//')); ?>" class="page_button">お問い合わせ<i class="icon-mini-arrow"></i></a>
+                    <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="page_button">お問い合わせ<i class="icon-mini-arrow"></i></a>
                 </div>
             </div>
         </div>

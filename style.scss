@@ -11,3 +11,9 @@
 @use 'page/single';
 @use 'page/form';
 @use 'page/business';
+@use 'page/company';
+@use 'page/privacy';
+@use 'page/site-map';
+@use 'page/recruit';
+@use 'page/about-us';
+@use 'page/404' as errorPage;

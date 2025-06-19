@@ -64,45 +64,44 @@ top: 0;
 left: 0;
 width: 100%;
 height: fit-content;
-transform: translateY(-100%); // 縦か横に潰す
 transition: transform 0.3s ease-in-out;
 display: flex;
-// align-items: center;
 justify-content:space-between;
 z-index: 1000;
 align-items: center;
 padding-left: 4%;
 padding-top: 20px;
+transform: translateY(-100%); // 縦に潰す
 top: 33px;// 開発時のみ
     .left_logo{
     display: block;
     height: 47px;
     } 
     &.visible {
-    transform: translateY(0); // 縦か横に膨らませる
+    transform: translateY(0); // 縦に膨らませる
     }
     .left_logo img {
     height: 40px;     }
     .menu {
     position: absolute;
-    width: 40%; // メニューの幅
+    width: 40%; 
     height: 100vh;
     top: 0;
-    right: -40%; // 初期状態で画面外に配置
+    right: 0;
     clear: both;
     background-color: #ffffffdf;
-    transition: 0.3s cubic-bezier(0.4, 0.0, 0.2, 1) 0.3008s;
-    transform: translateX(100%); // 右から左にスライドする準備
+    transform: translateX(100%); // 自身の大きさ分右に押し込む
     transform-origin: top;
     display: flex;
     flex-direction: column;
     padding: 120px 6%;
     overflow: auto;
     -webkit-overflow-scrolling: touch; /* スクロールの滑らかさを向上 (モバイル対応) */
+    transition: 0.3s cubic-bezier(0.4, 0.0, 0.2, 1) 0.3008s; //ゆっくりめ
     }
     .menu_btn:checked ~ .menu {
-    transform: translateX(0); // メニューを画面内にスライド
-    right: 0; // 画面右端に固定
+    transform: translateX(0); // 本来の位置に戻る
+    right: 0; 
     transform-origin: top;
     transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
     }
@@ -209,6 +208,7 @@ top: 33px;// 開発時のみ
                 color: variable.$cl-navy;
                 margin-bottom: 13px;
                 font-weight: 600;
+                font-family: 'Shippori Mincho', serif;
                 }
                 .button_title{
                 font-size: 22px;
